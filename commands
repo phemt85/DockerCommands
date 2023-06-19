@@ -26,13 +26,16 @@ Display logs of a container.
 docker logs [container name]
 
 Create new Postgis Containers with values:
-docker run -itd -e POSTGRES_USER=<username> -e POSTGRES_PASSWORD=<password> -p 5432:<port> -v <custom data directory>:/var/lib/postgresql/data --name <databasename> postgis/postgis
+docker run -itd -e POSTGRES_USER=<username> -e POSTGRES_PASSWORD=<password> -p 5432:<port> -v <custom data directory>:/var/lib/postgresql/data --name <containername> postgis/postgis
 
   Example:
   username: postgres
   password: postgres
   port: 5432
   custom data directory: C:/Users/DataDocker
-  databasename: dummydb
+  containername: dummydb
 
   docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v C:/Users/DataDocker:/var/lib/postgresql/data --name dummydb postgis/postgis
+  
+Create new Mysql Containers with values:
+docker run -itd --name=<containername> -p3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql
